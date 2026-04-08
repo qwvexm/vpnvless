@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open App</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter, Arial;
+}
+
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+overflow:hidden;
+
+/* переливающийся фон */
+background: linear-gradient(270deg,#0f172a,#0a0f1f,#13233d,#0a0f1f);
+background-size:600% 600%;
+animation:bgMove 18s ease infinite;
+}
+
+/* анимация фона */
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* сетка как на панели */
+body::before{
+content:"";
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:40px 40px;
+}
+
+/* карточка */
+.card{
+position:relative;
+width:420px;
+padding:45px;
+border-radius:20px;
+text-align:center;
+
+background:rgba(20,30,50,0.7);
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 0 40px rgba(0,180,255,0.15),
+0 30px 80px rgba(0,0,0,0.6);
+
+animation:glow 6s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+from{
+box-shadow:
+0 0 30px rgba(0,150,255,0.15),
+0 30px 80px rgba(0,0,0,0.6);
+}
+to{
+box-shadow:
+0 0 60px rgba(0,200,255,0.35),
+0 30px 80px rgba(0,0,0,0.6);
+}
+}
+
+.title{
+font-size:26px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.subtitle{
+opacity:.6;
+margin-bottom:35px;
+}
+
+/* кнопки */
+.buttons{
+display:flex;
+gap:18px;
+}
+
+/* общая кнопка */
+.btn{
+flex:1;
+padding:15px;
+border-radius:12px;
+text-decoration:none;
+color:white;
+font-weight:600;
+position:relative;
+overflow:hidden;
+}
+
+/* перелив кнопки */
+.btn::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+120deg,
+#00c6ff,
+#0072ff,
+#00c6ff,
+#00ffd5
+);
+background-size:300% 300%;
+animation:btnMove 6s linear infinite;
+z-index:-1;
+}
+
+.btn.android::before{
+background:linear-gradient(
+120deg,
+#34d399,
+#10b981,
+#34d399,
+#6ee7b7
+);
+background-size:300% 300%;
+}
+
+@keyframes btnMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="title">Открыть приложение</div>
+<div class="subtitle">Выберите устройство</div>
+
+<div class="buttons">
+
+<a class="btn ios" href="happ://open">
+iOS
+</a>
+
+<a class="btn android" href="happ://open/happ://crypt5/iaiixxeleXTDby9D0b22k9GnTowhAzHdur0FEtL9l+FKW2GiIKYAhVmogzmMCCuIGcrhtPFiRkn0G7otGKPsQ4Y5Xt5cVZHWpOFzpMUg1qadwKQCInTPFxoIJNFCNfqZH2QMbV3o214QLPX70tQEENB5hus2DF16zdRG0haXvZ/uyFW31v+i++FI++KMszQ28C1hKs3gnQhK0imxej0WLgwJHQTvnT70xdZMN3jhoRkLk=pCaJaXZlLhMzxKYhb8pjK7VcVMtusR9KpIsLzj8VFFQRc+j2ZfOJ9wMrTaJhXKL3Z12bvSoIG9O0Lg9f/TpFmLFNrNh5ErXPYxxbfY1ZbsLDUzVS43qXKSpiceg9c3Ad9xof8nGG2cd+mXp1rgzQumxl10R0IzHl5PNIMVs5Ww6t2JURS/8qqXRhxXLrLkiwzNsC+fOBbjO/oRQJfV40aOgjeqk2NgvtwAVHqNMzlLh1Tl2flPhYKPA/iZN9HG5c54Inn11z13fJ9ENN9vPC0KVyMn0OAqg/IUquqs/SuCQ+YBM3haBrhWw/zH4XqvShBrqorkycZKQxXK+0ZCC8AmheJXZaT8xCxmegMQ2ZR/gY+mRV9FlZFJ8F2k/w37udpLrJYjKZ9+wV2UVuXrmhVe958t6poFTIn+uL6RuCjOPQHb8++1u/AtdC9GfBNTCIs4MyePzan6tUATjvQrgD8lkgoA1cwv/otI+xmq0Kr4MfmlJJG0AosGqdG5Dk6l7Vi8u9G7YrTEHrcCe4HGlFzFO6BWEO1VK6joVMDJSJbV2rTPMoro+sbq1Fzoias5bAHqgBIPoyZ/sI+wqt8/tMwycRO7dkkw4qH1vSI4GwxnvMJoy2HYISNoYW94Gmw63+Tx+IzSY4lspVpjxeMUa9Ix7hFSLX8/iccEXOSCPKmGs=Cwdioa
+">
+Android
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
