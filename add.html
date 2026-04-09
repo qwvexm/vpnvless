@@ -3,173 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Open App</title>
+<title>Orange VPN</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter, Arial;
-}
-
 body{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-overflow:hidden;
-
-/* переливающийся фон */
-background: linear-gradient(270deg,#0f172a,#0a0f1f,#13233d,#0a0f1f);
-background-size:600% 600%;
-animation:bgMove 18s ease infinite;
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ffffff;
+    font-family:Arial, sans-serif;
 }
 
-/* анимация фона */
-@keyframes bgMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+.button{
+    background:#000000;
+    color:#ffffff;
+    padding:16px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+    box-shadow:0 6px 16px rgba(0,0,0,0.2);
 }
 
-/* сетка как на панели */
-body::before{
-content:"";
-position:absolute;
-inset:0;
-background-image:
-linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-background-size:40px 40px;
+.button:active{
+    transform:scale(0.97);
 }
-
-/* карточка */
-.card{
-position:relative;
-width:420px;
-padding:45px;
-border-radius:20px;
-text-align:center;
-
-background:rgba(20,30,50,0.7);
-backdrop-filter:blur(12px);
-
-border:1px solid rgba(255,255,255,0.08);
-
-box-shadow:
-0 0 40px rgba(0,180,255,0.15),
-0 30px 80px rgba(0,0,0,0.6);
-
-animation:glow 6s ease-in-out infinite alternate;
-}
-
-@keyframes glow{
-from{
-box-shadow:
-0 0 30px rgba(0,150,255,0.15),
-0 30px 80px rgba(0,0,0,0.6);
-}
-to{
-box-shadow:
-0 0 60px rgba(0,200,255,0.35),
-0 30px 80px rgba(0,0,0,0.6);
-}
-}
-
-.title{
-font-size:26px;
-font-weight:600;
-margin-bottom:10px;
-}
-
-.subtitle{
-opacity:.6;
-margin-bottom:35px;
-}
-
-/* кнопки */
-.buttons{
-display:flex;
-gap:18px;
-}
-
-/* общая кнопка */
-.btn{
-flex:1;
-padding:15px;
-border-radius:12px;
-text-decoration:none;
-color:white;
-font-weight:600;
-position:relative;
-overflow:hidden;
-}
-
-/* перелив кнопки */
-.btn::before{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(
-120deg,
-#00c6ff,
-#0072ff,
-#00c6ff,
-#00ffd5
-);
-background-size:300% 300%;
-animation:btnMove 6s linear infinite;
-z-index:-1;
-}
-
-.btn.android::before{
-background:linear-gradient(
-120deg,
-#34d399,
-#10b981,
-#34d399,
-#6ee7b7
-);
-background-size:300% 300%;
-}
-
-@keyframes btnMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-.btn:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="card">
-
-<div class="title">Открыть приложение</div>
-<div class="subtitle">Выберите устройство</div>
-
-<div class="buttons">
-
-<a class="btn ios" href="happ://crypt5/iaiiH6klblvPtoUU2b25lIE9LZ+GADriAzRvqQ/VIGlcfjn8NHD/Si338SXxnAzZSqvc+NPu9T78xrUMj0cGekyJsOtksbiAVwfdnjc1tYz0ktTgPhCbZRh74zjwpdBdvBCOpd7/T/Wf2qcAUMgzRRFXdESg/un9WdI4h4SnKM7glkNr44o9GxSF9Jiz2zWPn/7bFId7C0hzrfzjh6Ax6X6Mm690xq4JVy5vLgjC1QswuD90lqSc9w4z7BKxYle6r2Iz76mM9GrJQ=ls4NheCEDPWnlUsTRnnhh93P+8m1Qa4bc0pUmnRBKgIkX4KjD8+UEs6c+JUBAJ0B09i4vWG19E3Aem1u9eIVu3AOiwbZ8u99lEtIcUE+jHwUCWZ3OGdhPSCG2Q/ynWOmENQErcfe9L3mqJRAgwRjuRsmgIsNVwmll00UXqXOWXEJMbrWfv/IF3GLAxTkyK7Ob2KqxmFSpa8KgCon6RDfrWyk3DeP6MF9wS9+CdnoD57ivD6VqsJlZ2FZjDJUGuRJONTjZ2M0t1y9cncFDPaC790jo/XfFdMbM126rg8bAHGXVRzOaG+Jc6rKh8Hc4s7exMw1eK5b+Q9IwmHqyfb5fyWZRgbG+rXqrcaHY2elIZPyI5+ecNp8+x1wGWnWsUZDkO3nsyLTQayMImwKJdsiCZGBD/D3gz3i5zzln1HEpjk7woJddCV3TYtRmxiBLIZx/MZXJ2E62/+L2FgjnZw3EhW3b2f0dnUBOnm2oNbfqXwRpnfPEzGkz8i7fPTGmev8475AASj1yO08kmm3uRNAANtkGBKMeASMFCrdiYKCnQJVflRx8wTeVmm53pco/NpQaq21PhTlssCcpL7qTKuJEUhiPL19V3V4oHISaUp/2jJVmKVTTnEG4cImHvjvLMd49k8gpxs0y2/LVcONXfziZOgaJItg2rY7MPImEHeeLiA=xadioa">
-iOS
+<a class="button" href="happ://crypt5/iaiiH6klblvPtoUU2b25lIE9LZ+GADriAzRvqQ/VIGlcfjn8NHD/Si338SXxnAzZSqvc+NPu9T78xrUMj0cGekyJsOtksbiAVwfdnjc1tYz0ktTgPhCbZRh74zjwpdBdvBCOpd7/T/Wf2qcAUMgzRRFXdESg/un9WdI4h4SnKM7glkNr44o9GxSF9Jiz2zWPn/7bFId7C0hzrfzjh6Ax6X6Mm690xq4JVy5vLgjC1QswuD90lqSc9w4z7BKxYle6r2Iz76mM9GrJQ=ls4NheCEDPWnlUsTRnnhh93P+8m1Qa4bc0pUmnRBKgIkX4KjD8+UEs6c+JUBAJ0B09i4vWG19E3Aem1u9eIVu3AOiwbZ8u99lEtIcUE+jHwUCWZ3OGdhPSCG2Q/ynWOmENQErcfe9L3mqJRAgwRjuRsmgIsNVwmll00UXqXOWXEJMbrWfv/IF3GLAxTkyK7Ob2KqxmFSpa8KgCon6RDfrWyk3DeP6MF9wS9+CdnoD57ivD6VqsJlZ2FZjDJUGuRJONTjZ2M0t1y9cncFDPaC790jo/XfFdMbM126rg8bAHGXVRzOaG+Jc6rKh8Hc4s7exMw1eK5b+Q9IwmHqyfb5fyWZRgbG+rXqrcaHY2elIZPyI5+ecNp8+x1wGWnWsUZDkO3nsyLTQayMImwKJdsiCZGBD/D3gz3i5zzln1HEpjk7woJddCV3TYtRmxiBLIZx/MZXJ2E62/+L2FgjnZw3EhW3b2f0dnUBOnm2oNbfqXwRpnfPEzGkz8i7fPTGmev8475AASj1yO08kmm3uRNAANtkGBKMeASMFCrdiYKCnQJVflRx8wTeVmm53pco/NpQaq21PhTlssCcpL7qTKuJEUhiPL19V3V4oHISaUp/2jJVmKVTTnEG4cImHvjvLMd49k8gpxs0y2/LVcONXfziZOgaJItg2rY7MPImEHeeLiA=xadioa">
+Импортировать подписку
 </a>
-
-<a class="btn android" href="happ://crypt5/iaiiH6klblvPtoUU2b25lIE9LZ+GADriAzRvqQ/VIGlcfjn8NHD/Si338SXxnAzZSqvc+NPu9T78xrUMj0cGekyJsOtksbiAVwfdnjc1tYz0ktTgPhCbZRh74zjwpdBdvBCOpd7/T/Wf2qcAUMgzRRFXdESg/un9WdI4h4SnKM7glkNr44o9GxSF9Jiz2zWPn/7bFId7C0hzrfzjh6Ax6X6Mm690xq4JVy5vLgjC1QswuD90lqSc9w4z7BKxYle6r2Iz76mM9GrJQ=ls4NheCEDPWnlUsTRnnhh93P+8m1Qa4bc0pUmnRBKgIkX4KjD8+UEs6c+JUBAJ0B09i4vWG19E3Aem1u9eIVu3AOiwbZ8u99lEtIcUE+jHwUCWZ3OGdhPSCG2Q/ynWOmENQErcfe9L3mqJRAgwRjuRsmgIsNVwmll00UXqXOWXEJMbrWfv/IF3GLAxTkyK7Ob2KqxmFSpa8KgCon6RDfrWyk3DeP6MF9wS9+CdnoD57ivD6VqsJlZ2FZjDJUGuRJONTjZ2M0t1y9cncFDPaC790jo/XfFdMbM126rg8bAHGXVRzOaG+Jc6rKh8Hc4s7exMw1eK5b+Q9IwmHqyfb5fyWZRgbG+rXqrcaHY2elIZPyI5+ecNp8+x1wGWnWsUZDkO3nsyLTQayMImwKJdsiCZGBD/D3gz3i5zzln1HEpjk7woJddCV3TYtRmxiBLIZx/MZXJ2E62/+L2FgjnZw3EhW3b2f0dnUBOnm2oNbfqXwRpnfPEzGkz8i7fPTGmev8475AASj1yO08kmm3uRNAANtkGBKMeASMFCrdiYKCnQJVflRx8wTeVmm53pco/NpQaq21PhTlssCcpL7qTKuJEUhiPL19V3V4oHISaUp/2jJVmKVTTnEG4cImHvjvLMd49k8gpxs0y2/LVcONXfziZOgaJItg2rY7MPImEHeeLiA=xadioa">
-Android
-</a>
-
-</div>
-
-</div>
 
 </body>
 </html>
